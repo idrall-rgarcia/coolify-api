@@ -8,7 +8,7 @@ ADD *.js ./
 
 RUN  dnf -y install oracle-instantclient-release-el8 && \
      dnf -y install oracle-instantclient-basic oracle-instantclient-devel oracle-instantclient-sqlplus && \
-     dnf -y node \
+     dnf -y install module nodejs \
      rm -rf /var/cache/dnf
 
 # Uncomment if the tools package is added
