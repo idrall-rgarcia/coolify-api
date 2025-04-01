@@ -11,6 +11,7 @@ RUN  dnf -y install oracle-instantclient-release-el8 && \
      dnf -y config-manager --set-enabled ol8_appstream && \
      dnf -y module enable nodejs:18 && \
      dnf -y module install nodejs && \
+     npm install oracledb && \
      rm -rf /var/cache/dnf
 
 # Uncomment if the tools package is added
