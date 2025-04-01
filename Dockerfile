@@ -8,7 +8,9 @@ ADD *.js ./
 
 RUN  dnf -y install oracle-instantclient-release-el8 && \
      dnf -y install oracle-instantclient-basic oracle-instantclient-devel oracle-instantclient-sqlplus && \
-     dnf -y install module nodejs && \
+     dnf -y config-manager --set-enabled ol8_appstream && \
+     dnf -y module enable nodejs:18 && \
+     dnf -y module install nodejs && \
      rm -rf /var/cache/dnf
 
 # Uncomment if the tools package is added
