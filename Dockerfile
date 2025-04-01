@@ -1,4 +1,4 @@
-FROM oraclelinux:9-slim
+FROM oraclelinux:8
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -11,15 +11,15 @@ ADD *.js ./
 # Install the Oracle Instant Client
 # Check that Node.js and NPM installed correctly
 # Install the OracleDB driver
-RUN dnf update -y && \
-  dnf install -y oracle-release-el9 && \
-  dnf install -y oracle-nodejs-release-el9 && \
-  dnf install -y --disablerepo=ol9_developer_EPEL nodejs && \
-  dnf install -y oracle-instantclient19.3-basic.x86_64 && \
-  dnf clean all && \
+RUN yum update -y && \
+  yum install -y oracle-release-el8 && \
+  yum install -y oracle-nodejs-release-el8 && \
+  yum install -y --disablerepo=ol8_developer_EPEL nodejs && \
+  yum install -y oracle-instantclient19.3-basic.x86_64 && \
+  yum clean all && \
   node --version && \
   npm --version && \
-  dnf install oracledb && \
+  npm install oracledb && \
   echo Installed
 
 EXPOSE 3000
